@@ -50,11 +50,38 @@ y = ax + b
 ```
 
 ```python
+import numpy as np
 
+x = np.array([2, 4, 6, 8])
+y = np.array([81, 93, 91, 97])
+
+mx = np.mean(x)
+my = np.mean(y)
+
+def top(x, mx, y, my):
+    d = 0
+    for i in range(len(x)):
+        d += (x[i] - mx) * (y[i] - my)
+    return d
+
+divisor = sum([(i - mx)**2 for i in x])
+dividend = top(x, mx, y, my)
+
+a = dividend / divisor
+b = my - mx * a
 ```
 a = (x - x 평균) * (y - y평균)의 합 / (x - x 평균)**2의 합   
 b = y의 평균 - x의 평균 * 기울기 a
 
+
+
+
 ### 다중 선형 회귀
 
 독립변수가 여러 개인 선형 회귀
+
+
+
+평균 제곱 오차(MSE)로 a b 구하기
+
+오차를 제곱하는 이유: 양수 오차와 음수 오차가 상쇄되어 오차가 사라질 수 있어서.
