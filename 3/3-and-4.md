@@ -39,15 +39,23 @@ w는 가중치이며 기울기
 
 독립변수가 하나인 선형 회귀 = 일차 함수
 
+예:
 y = ax + b
 
 선형 회귀를 만드는 법: a와 b를 구함
 
 **최소 제곱법**으로 a, b 구하기:
 
-```math
+a = (x - x 평균) * (y - y평균)의 합 / (x - x 평균)**2의 합   
+b = y의 평균 - x의 평균 * 기울기 a
 
-```
+$$
+a=\frac{\sum_{i=1}^{n}{(({x_i}-\frac{X}n)*({y_i}-\frac{Y}n))}}{\sum_{i=1}^n{(x_i-{\frac{X}{n}})}^2}
+$$
+
+$$
+b=\frac{Y}n-\frac{X}n*a
+$$
 
 ```python
 import numpy as np
@@ -58,20 +66,19 @@ y = np.array([81, 93, 91, 97])
 mx = np.mean(x)
 my = np.mean(y)
 
-def top(x, mx, y, my):
+def top():
     d = 0
     for i in range(len(x)):
         d += (x[i] - mx) * (y[i] - my)
     return d
 
 divisor = sum([(i - mx)**2 for i in x])
-dividend = top(x, mx, y, my)
+dividend = top()
 
 a = dividend / divisor
 b = my - mx * a
 ```
-a = (x - x 평균) * (y - y평균)의 합 / (x - x 평균)**2의 합   
-b = y의 평균 - x의 평균 * 기울기 a
+
 
 
 
