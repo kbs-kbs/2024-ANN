@@ -1,6 +1,6 @@
 import numpy as np
 
-# 가중치와 바이어스
+# 가중치와 편향 (이런 가중치와 편향을 쓰면 논리적으로 사용가능)
 w11 = np.array([-2, -2])
 w12 = np.array([2, 2])
 w2 = np.array([1, 1])
